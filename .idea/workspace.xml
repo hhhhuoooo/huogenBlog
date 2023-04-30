@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4a120fe5-59b1-45e4-9d51-810febfba910" name="Changes" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="A:/Maven/apache-maven-3.9.1" />
+        <option name="userSettingsFile" value="A:\Maven\apache-maven-3.9.1\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="workspaceImportEnabled" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2OreHQpsweLny7UuVFe1DwDDujZ" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "jdk.selected.JAVA_MODULE": "1.8",
+    "last_opened_file_path": "D:/IntelliJ IDEA Ultimate/project/huogenBlog/huogen-admin/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "spring.boot",
+    "spring.configuration.checksum": "6e6feaecc59ddf04d365514759dda835",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
+  }
+}]]></component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.huo.service" />
+      <recent name="com.huo.domain.vo" />
+      <recent name="com.huo.domain.entity" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\IntelliJ IDEA Ultimate\project\huogenBlog\huogen-admin\src\main\resources" />
+      <recent name="D:\IntelliJ IDEA Ultimate\project\huogenBlog\huogen-framework\src\main\java\com\huo\utils" />
+      <recent name="D:\IntelliJ IDEA Ultimate\project\huogenBlog\huogen-framework\src\main\java\com\huo\config" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.huo" />
+      <recent name="com.huo.service.impl" />
+      <recent name="com.huo.service" />
+      <recent name="com.huo.mapper" />
+      <recent name="com.huo.domain.entity" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.HuoGenBlogApplication">
+    <configuration name="OSSTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="huogen-blog" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.huo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.huo" />
+      <option name="MAIN_CLASS_NAME" value="com.huo.OSSTest" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OSSTest.testOSS" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="huogen-blog" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.huo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.huo" />
+      <option name="MAIN_CLASS_NAME" value="com.huo.OSSTest" />
+      <option name="METHOD_NAME" value="testOSS" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="HuoGenBlogApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="huogen-blog" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.huo.HuoGenBlogApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.huo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Spring Boot.HuoGenBlogApplication" />
+        <item itemvalue="JUnit.OSSTest.test" />
+        <item itemvalue="JUnit.OSSTest.testOSS" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4a120fe5-59b1-45e4-9d51-810febfba910" name="Changes" comment="" />
+      <created>1682323040101</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1682323040101</updated>
+      <workItem from="1682323041271" duration="977000" />
+      <workItem from="1682324035549" duration="14000" />
+      <workItem from="1682324100714" duration="500000" />
+      <workItem from="1682324638126" duration="5374000" />
+      <workItem from="1682331156433" duration="4605000" />
+      <workItem from="1682388901266" duration="366000" />
+      <workItem from="1682411849343" duration="2992000" />
+      <workItem from="1682426093790" duration="162000" />
+      <workItem from="1682503499516" duration="2760000" />
+      <workItem from="1682559665418" duration="7903000" />
+      <workItem from="1682568512325" duration="6701000" />
+      <workItem from="1682585125491" duration="504000" />
+      <workItem from="1682585654841" duration="4211000" />
+      <workItem from="1682652435567" duration="16000" />
+      <workItem from="1682672459885" duration="5000" />
+      <workItem from="1682672474795" duration="17000" />
+      <workItem from="1682673970372" duration="9402000" />
+      <workItem from="1682735632970" duration="8866000" />
+      <workItem from="1682820723860" duration="10038000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
