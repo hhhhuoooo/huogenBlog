@@ -3,28 +3,32 @@ package com.huo.service.impl;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.fasterxml.jackson.databind.util.BeanUtil;
 import com.huo.constants.SystemConstants;
 import com.huo.domain.ResponseResult;
+import com.huo.domain.dto.AddArticleDto;
+import com.huo.domain.dto.ArticleListDto;
+import com.huo.domain.dto.ContentArticleListDto;
 import com.huo.domain.entity.Article;
+import com.huo.domain.entity.ArticleTag;
 import com.huo.domain.entity.Category;
-import com.huo.domain.vo.ArticleDetailVo;
-import com.huo.domain.vo.ArticleListVo;
-import com.huo.domain.vo.HotArticleVo;
-import com.huo.domain.vo.PageVo;
+import com.huo.domain.vo.*;
 import com.huo.mapper.ArticleMapper;
 import com.huo.service.ArticleService;
 
+import com.huo.service.ArticleTagService;
 import com.huo.service.CategoryService;
 import com.huo.utils.BeanCopyUtils;
 import com.huo.utils.RedisCache;
-import org.springframework.beans.BeanUtils;
+import com.huo.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * @version 1.0
@@ -38,6 +42,13 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
 
     @Autowired
     private RedisCache redisCache;
+
+
+    @Autowired
+    private ArticleTagService articleTagService;
+
+    @Autowired
+    private ArticleMapper articleMapper;
 
     @Override
     public ResponseResult hotArticleList() {
@@ -113,5 +124,85 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         redisCache.incrementCacheMapValue("article:viewCount",id.toString(),1);
         return ResponseResult.okResult();
     }
+
+
+
+    //在后端中写博客
+
+
+    @Override
+    @Transactional
+    public ResponseResult add(AddArticleDto articleDto) {
+        //添加 博客
+        Article article = BeanCopyUtils.copyBean(articleDto, Article.class);
+        save(article);
+
+
+        List<ArticleTag> articleTags = articleDto.getTags().stream()
+                .map(tagId -> new ArticleTag(article.getId(), tagId))
+                .collect(Collectors.toList());
+
+        //添加 博客和标签的关联
+        articleTagService.saveBatch(articleTags);
+        return ResponseResult.okResult();
+    }
+
+
+    //在后端中获取文章列表
+    @Override
+    public ResponseResult<PageVo> List(Integer pageNum, Integer pageSize, ArticleListDto articleListDto) {
+        LambdaQueryWrapper<Article> queryWrapper=new LambdaQueryWrapper<>();
+        queryWrapper.eq(Article::getDelFlag,SystemConstants.ARTICLE_DELETE_NORMAL);
+        //实现模糊查询标题和摘要
+        queryWrapper.like(StringUtils.hasText(articleListDto.getTitle()), Article::getTitle,articleListDto.getTitle());
+        queryWrapper.like(StringUtils.hasText(articleListDto.getSummary()),Article::getTitle,articleListDto.getSummary());
+        Page page=new Page(pageNum,pageSize);
+        page(page,queryWrapper);
+        List<ContentArticleListVo> ContentArticleListVos = BeanCopyUtils.copyBeanList(page.getRecords(), ContentArticleListVo.class);
+
+
+        return ResponseResult.okResult(new PageVo(ContentArticleListVos,page.getTotal()));
+    }
+
+    @Override
+    public ResponseResult get(Long id) {
+        if (StringUtils.hasText(id.toString())){
+            Article article = articleMapper.selectById(id);
+
+            //在数据库中通过连表查询出文章的tag标签
+            List<ArticleTag> taglist = articleMapper.getArticleTaglist(id);
+            List<String> tags=new ArrayList<>();
+//            将查询到的数据转换成String类型的集合
+            for (ArticleTag articleTag:taglist) {
+                String tag = articleTag.getTagId().toString();
+                tags.add(tag);
+            }
+
+            //封装到Vo中
+            ContentArticleListVo contentArticleListVo = BeanCopyUtils.copyBean(article, ContentArticleListVo.class);
+            contentArticleListVo.setTags(tags);
+            return ResponseResult.okResult(contentArticleListVo);
+        }
+        return null;
+    }
+
+    @Override
+    public ResponseResult updateArticle(ContentArticleListDto dto) {
+
+        Article article = BeanCopyUtils.copyBean(dto, Article.class);
+        updateById(article);
+        return ResponseResult.okResult();
+    }
+
+    @Override
+    public ResponseResult deleteArticle(Long id) {
+        if (StringUtils.hasText(id.toString())){
+            articleMapper.deleteById(id);
+        }
+
+        return ResponseResult.okResult();
+    }
+
+
 }
 

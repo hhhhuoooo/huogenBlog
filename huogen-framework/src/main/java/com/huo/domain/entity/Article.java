@@ -2,7 +2,9 @@ package com.huo.domain.entity;
 
 import java.util.Date;
 import java.io.Serializable;
+import java.util.List;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -42,16 +44,21 @@ public class Article  {
     private Long viewCount;
     //是否允许评论 1是，0否
     private String isComment;
-    
+
+    @TableField(fill = FieldFill.INSERT)
     private Long createBy;
-    
+    @TableField(fill = FieldFill.INSERT)
     private Date createTime;
-    
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Long updateBy;
-    
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Date updateTime;
     //删除标志（0代表未删除，1代表已删除）
     private Integer delFlag;
+
+    @TableField(exist = false)
+    //博文所属的标签
+    private List<String> tags;
 
 
     public Article(Long id, long viewCount) {

@@ -1,5 +1,5 @@
 server:
-  port: 7777
+  port: 8989
 
 spring:
   datasource:
@@ -39,4 +39,7 @@ mybatis-plus:
       table-prefix: hg_
 
 
-
+oss:
+  accessKey: V16s6BAP35xly_1YeDAD1QRcJsl2doVzWQX3DgcH
+  secretKey: kK5pwQ0dHggClyIctV717JoqX_1BPRYqpQOmRKyP
+  bucket: hg1-blog

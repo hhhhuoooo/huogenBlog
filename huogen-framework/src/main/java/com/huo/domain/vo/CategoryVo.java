@@ -16,6 +16,8 @@ public class CategoryVo {
     private Long id;
     //标题
     private String name;
-    //访问量
+
+    //描述
+    private String  description;
 
 }

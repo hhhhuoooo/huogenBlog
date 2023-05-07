@@ -2,7 +2,11 @@ package com.huo.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.huo.domain.ResponseResult;
+import com.huo.domain.dto.LinkAddDto;
+import com.huo.domain.dto.LinkListDto;
 import com.huo.domain.entity.Link;
+import com.huo.domain.vo.LinkUpdateVo;
+import com.huo.domain.vo.PageVo;
 
 
 /**
@@ -14,5 +18,15 @@ import com.huo.domain.entity.Link;
 public interface LinkService extends IService<Link> {
 
     ResponseResult getAlllink();
+
+    ResponseResult<PageVo> linkList(Integer pageNum, Integer pageSize, LinkListDto linkListDto);
+
+    ResponseResult add(LinkAddDto linkAddDto);
+
+    ResponseResult deleteLink(Long id);
+
+    ResponseResult get(Long id);
+
+    ResponseResult updateLink(LinkUpdateVo linkUpdateVo);
 }
 

@@ -34,6 +34,41 @@ public class SystemConstants
 
     public static final String LINK_COMMENT = "1";
 
+    /**
+     * 菜单的类型为C   菜单
+     */
+    public static final String MENU_TYPE_C = "C";
+
+    /**
+     * 菜单的类型为F   按钮
+     */
+    public static final String MENU_TYPE_F = "F";
+
+
+    /** 正常状态 */
+    public static final String NORMAL = "0";
+
+
+    /**
+     *  文章是未被删除的
+     */
+    public static final int ARTICLE_DELETE_NORMAL = 0;
+
+    /**
+     *  角色状态正常
+     */
+    public static final String ROEL_NORMAL = "0";
+
+    /**
+     *  角色状态停用
+     */
+    public static final String ROLE_STOP_USING = "0";
+
+
+
+
+
+
 
 
 
