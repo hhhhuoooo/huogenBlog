@@ -18,13 +18,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/content/article")
 public class BlogContentController {
 
-    @Autowired
-    private ArticleService articleService;
-
-
-    @PostMapping
-    public ResponseResult add(@RequestBody AddArticleDto article){
-        return articleService.add(article);
-    }
+//    @Autowired
+//    private ArticleService articleService;
+//
+//
+//    @PostMapping
+//    public ResponseResult add(@RequestBody AddArticleDto article){
+//        return articleService.add(article);
+//    }
 
 }

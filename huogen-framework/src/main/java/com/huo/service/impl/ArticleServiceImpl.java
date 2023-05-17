@@ -50,6 +50,8 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
     @Autowired
     private ArticleMapper articleMapper;
 
+
+    //获取热门文章
     @Override
     public ResponseResult hotArticleList() {
         LambdaQueryWrapper<Article> queryWrapper=new LambdaQueryWrapper<>();
@@ -77,22 +79,26 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
 
     @Override
     public ResponseResult articleList(Integer pageNum, Integer pageSize, long categoryId) {
-
+        //查询条件
         LambdaQueryWrapper<Article> queryWrapper=new LambdaQueryWrapper<>();
 
+        // 如果 有categoryId 就要 查询时要和传入的相同
         queryWrapper.eq(Objects.nonNull(categoryId)&&categoryId>0,Article::getCategoryId,categoryId);
+        // 状态是正式发布的
         queryWrapper.eq(Article::getStatus,SystemConstants.ARTICLE_STATUS_NORMAL);
+        // 对isTop进行降序
         queryWrapper.orderByDesc(Article::getIsTop);
-
+        //分页查询
         Page<Article> page=new Page(pageNum,pageSize);
         page(page,queryWrapper);
         List<Article> articles = page.getRecords();
-
+        //查询categoryName
         for (Article article:articles) {
             Category category = categoryService.getById(article.getCategoryId());
             article.setCategoryName(category.getName());
 
         }
+        //封装查询结果
         List<ArticleListVo> articleListVos = BeanCopyUtils.copyBeanList(page.getRecords(), ArticleListVo.class);
 
         PageVo pageVo = new PageVo(articleListVos, page.getTotal());
@@ -127,9 +133,10 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
 
 
 
+
+
+
     //在后端中写博客
-
-
     @Override
     @Transactional
     public ResponseResult add(AddArticleDto articleDto) {
@@ -141,7 +148,6 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         List<ArticleTag> articleTags = articleDto.getTags().stream()
                 .map(tagId -> new ArticleTag(article.getId(), tagId))
                 .collect(Collectors.toList());
-
         //添加 博客和标签的关联
         articleTagService.saveBatch(articleTags);
         return ResponseResult.okResult();

@@ -1,9 +1,7 @@
 package com.huo.controller;
 
 import com.huo.domain.ResponseResult;
-import com.huo.domain.dto.TagListDto;
-import com.huo.domain.dto.UserAddDto;
-import com.huo.domain.dto.UserListDto;
+import com.huo.domain.dto.*;
 import com.huo.domain.entity.User;
 import com.huo.domain.vo.PageVo;
 import com.huo.domain.vo.TagVo;
@@ -29,6 +27,11 @@ public class UserController {
         return userService.userList(pageNum,pageSize,userListDto);
     }
 
+    //修改用户状态
+    @PutMapping("/changeStatus")
+    public ResponseResult changeStatus(@RequestBody UserDto userDto){
+        return userService.changeStatus(userDto);
+    }
 
 
     //新增用户

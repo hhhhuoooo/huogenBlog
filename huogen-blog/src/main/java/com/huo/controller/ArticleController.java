@@ -21,22 +21,15 @@ import java.util.List;
 public class ArticleController {
     @Autowired
     private ArticleService articleService;
+    //    获取热门文章
+        @GetMapping("/hotArticleList")
+        public ResponseResult hotArticleList(){
+            return articleService.hotArticleList();
 
-//    @GetMapping("/list")
-//    public List<Article> test(){
-//        return articleService.list();
-//    }
-
-//    获取热门文章
-    @GetMapping("/hotArticleList")
-    public ResponseResult hotArticleList(){
-        return articleService.hotArticleList();
-
-    }
+        }
 //    {pageNum}/{pageSize}/{categoryId}
     @GetMapping("/articleList")
     public ResponseResult ArticleList( Integer pageNum,  Integer pageSize,  long categoryId){
-
         return articleService.articleList(pageNum,pageSize,categoryId);
 
     }
@@ -45,9 +38,7 @@ public class ArticleController {
     //浏览文章详情
     @GetMapping("/{id}")
     public ResponseResult getArticleDetail(@PathVariable("id") long id){
-
         return articleService.getArticleDetail(id);
-
     }
 
     @PutMapping("/updateViewCount/{id}")

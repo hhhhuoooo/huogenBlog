@@ -11,8 +11,7 @@ import org.springframework.context.annotation.Configuration;
  * @Date 2023/4/27 10:58
  */
 @Configuration
-public class MbatisPlusConfig {
-
+public class MybatisPlusConfig {
     /**
      * 3.4.0之后版本
      * @return

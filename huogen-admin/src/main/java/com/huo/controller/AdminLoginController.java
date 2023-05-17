@@ -62,13 +62,10 @@ public class AdminLoginController {
         LoginUser loginUser = SecurityUtils.getLoginUser();
         //根据用户id查询权限信息
         List<String> perms = menuService.selectPermsByUserId(loginUser.getUser().getId());
-
         //根据用户id查询角色信息
         List<String> roleKeyList = roleService.selectRoleKeyByUserId(loginUser.getUser().getId());
 //        List<String> roleKeyList =  null;
-
         //根据用户id查询角色信息
-
         User user = loginUser.getUser();
         UserInfoVo userInfoVo = BeanCopyUtils.copyBean(user, UserInfoVo.class);
 

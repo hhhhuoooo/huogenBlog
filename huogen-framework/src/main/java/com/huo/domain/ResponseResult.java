@@ -48,6 +48,7 @@ public class ResponseResult<T> implements Serializable {
         return result.ok(code, null, msg);
     }
 
+    //主要使用方法
     public static ResponseResult okResult(Object data) {
         ResponseResult result = setAppHttpCodeEnum(AppHttpCodeEnum.SUCCESS, AppHttpCodeEnum.SUCCESS.getMsg());
         if(data!=null) {
@@ -55,6 +56,7 @@ public class ResponseResult<T> implements Serializable {
         }
         return result;
     }
+
 
     public static ResponseResult errorResult(AppHttpCodeEnum enums){
         return setAppHttpCodeEnum(enums,enums.getMsg());

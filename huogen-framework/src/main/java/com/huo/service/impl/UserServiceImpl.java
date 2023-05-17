@@ -5,7 +5,9 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.huo.constants.SystemConstants;
 import com.huo.domain.ResponseResult;
+import com.huo.domain.dto.RoleStatusDto;
 import com.huo.domain.dto.UserAddDto;
+import com.huo.domain.dto.UserDto;
 import com.huo.domain.dto.UserListDto;
 import com.huo.domain.entity.Role;
 import com.huo.domain.entity.Tag;
@@ -51,9 +53,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
     public ResponseResult userInfo() {
         Long userId = SecurityUtils.getUserId();
         User user = getById(userId);
-
         UserInfoVo userInfoVo = BeanCopyUtils.copyBean(user, UserInfoVo.class);
-
         return ResponseResult.okResult(userInfoVo);
     }
 
@@ -122,6 +122,19 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         PageVo pageVo=new PageVo(page.getRecords(),page.getTotal());
 
         return ResponseResult.okResult(pageVo);
+    }
+
+    @Override
+    public ResponseResult changeStatus(UserDto userDto) {
+
+        if (StringUtils.hasText(userDto.getUserId().toString())){
+
+            User user = new User();
+            user.setId(userDto.getUserId());
+            user.setStatus(userDto.getStatus());
+            updateById(user);
+        }
+        return ResponseResult.okResult();
     }
 
 

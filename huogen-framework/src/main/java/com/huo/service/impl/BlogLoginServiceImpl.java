@@ -35,7 +35,8 @@ public class BlogLoginServiceImpl implements BlogLoginService {
 
     @Override
     public ResponseResult login(User user) {
-        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(user.getUserName(), user.getPassword());
+        UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken
+                (user.getUserName(), user.getPassword());
 
         Authentication authenticate = authenticationManager.authenticate(authenticationToken);
         if (Objects.isNull(authenticate)){
@@ -54,7 +55,6 @@ public class BlogLoginServiceImpl implements BlogLoginService {
         UserInfoVo userInfoVo = BeanCopyUtils.copyBean(loginUser.getUser(), UserInfoVo.class);
         BlogUserLoginVo vo = new BlogUserLoginVo(jwt,userInfoVo);
         return ResponseResult.okResult(vo);
-
     }
 
     @Override

@@ -2,7 +2,9 @@ package com.huo.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.huo.domain.ResponseResult;
+import com.huo.domain.dto.RoleStatusDto;
 import com.huo.domain.dto.UserAddDto;
+import com.huo.domain.dto.UserDto;
 import com.huo.domain.dto.UserListDto;
 import com.huo.domain.entity.User;
 import com.huo.domain.vo.PageVo;
@@ -29,4 +31,6 @@ public interface UserService extends IService<User> {
     ResponseResult get(Long id);
 
     ResponseResult updateUser(User user);
+
+    ResponseResult changeStatus(UserDto userDto);
 }

@@ -21,7 +21,7 @@ public class UserController {
 
 
 //    获取用户信息
-    @GetMapping(    "/userInfo")
+    @GetMapping("/userInfo")
     public ResponseResult userInfo(){
         return userService.userInfo();
     }

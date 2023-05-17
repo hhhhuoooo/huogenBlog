@@ -69,7 +69,6 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
             //否则  获取当前用户所具有的Menu
             menus = menuMapper.selectRouterMenuTreeByUserId(userId);
         }
-
         //构建tree
         //先找出第一层的菜单  然后去找他们的子菜单设置到children属性中
         List<Menu> menuTree = builderMenuTree(menus,0L);

@@ -34,20 +34,27 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
     private UserService userService;
     @Override
     public ResponseResult commentList(String commentType, Long articleId, Integer pageNum, Integer pageSize) {
-        //查询文章的根评论
-        LambdaQueryWrapper<Comment> queryWrapper=new LambdaQueryWrapper<>();
+        //查询对应文章的根评论
+        LambdaQueryWrapper<Comment> queryWrapper = new LambdaQueryWrapper<>();
+        //对articleId进行判断
         queryWrapper.eq(SystemConstants.ARTICLE_COMMENT.equals(commentType),Comment::getArticleId,articleId);
-        queryWrapper.eq(Comment::getRootId,-1);
+        //根评论 rootId为-1
+        queryWrapper.eq(Comment::getRootId,SystemConstants.ARTICLE_COMMENT_ROOT);
+
+        //评论类型
         queryWrapper.eq(Comment::getType,commentType);
 
-        Page<Comment> page=new Page(pageNum,pageSize);
+        //分页查询
+        Page<Comment> page = new Page(pageNum,pageSize);
         page(page,queryWrapper);
 
-        List<Comment> comments = page.getRecords();
-        List<CommentVo> commentVoList = toCommentVoList(comments);
+        List<CommentVo> commentVoList = toCommentVoList(page.getRecords());
 
-        for (CommentVo commentVo:commentVoList) {
+        //查询所有根评论对应的子评论集合，并且赋值给对应的属性
+        for (CommentVo commentVo : commentVoList) {
+            //查询对应的子评论
             List<CommentVo> children = getChildren(commentVo.getId());
+            //赋值
             commentVo.setChildren(children);
         }
 
@@ -55,33 +62,37 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
     }
 
 
-
+    /**
+     * 根据根评论的id查询所对应的子评论的集合
+     * @param id 根评论的id
+     * @return
+     */
     private List<CommentVo> getChildren(Long id) {
-        LambdaQueryWrapper<Comment> queryWrapper=new LambdaQueryWrapper<>();
+
+        LambdaQueryWrapper<Comment> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(Comment::getRootId,id);
         queryWrapper.orderByAsc(Comment::getCreateTime);
+        List<Comment> comments = list(queryWrapper);
 
-        List<Comment> comments=list(queryWrapper);
         List<CommentVo> commentVos = toCommentVoList(comments);
-        return  commentVos;
+        return commentVos;
     }
 
-
-    public List<CommentVo> toCommentVoList(List<Comment> list){
+    private List<CommentVo> toCommentVoList(List<Comment> list){
         List<CommentVo> commentVos = BeanCopyUtils.copyBeanList(list, CommentVo.class);
-
-        for (CommentVo commentVo :commentVos) {
-            String nickName=userService.getById(commentVo.getCreateBy()).getNickName();
+        //遍历vo集合
+        for (CommentVo commentVo : commentVos) {
+            //通过creatyBy查询用户的昵称并赋值
+            String nickName = userService.getById(commentVo.getCreateBy()).getNickName();
             commentVo.setUsername(nickName);
-
-            if (commentVo.getToCommentId()!=-1){
-                String toCommentUserName=userService
-                        .getById(commentVo.getToCommentUserId()).getNickName();
+            //通过toCommentUserId查询用户的昵称并赋值
+            //如果toCommentUserId不为-1才进行查询
+            if(commentVo.getToCommentUserId()!=-1){
+                String toCommentUserName = userService.getById(commentVo.getToCommentUserId()).getNickName();
                 commentVo.setToCommentUserName(toCommentUserName);
             }
         }
-
-        return  commentVos;
+        return commentVos;
     }
 
 

@@ -24,6 +24,8 @@ import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  * 分类表(Category)表服务实现类
@@ -44,19 +46,32 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
 
     @Override
     public ResponseResult getCategoryList() {
-        List<Article> articles = articleService.list();
+//        List<Article> articles = articleService.list();
+//        //可以采用stream表示更方便
+//        List<Category> categories=new ArrayList<>();
+//        for (Article article:articles) {
+//            if (article.getStatus().equals("0")){
+//                Category category = categoryService.getById(article.getCategoryId());
+//                if (category.getStatus().equals("0")){
+//                    categories.add(category);
+//                }
+//            }
+//        }
+        //查询文章表  状态为已发布的文章
+        LambdaQueryWrapper<Article> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Article::getStatus,SystemConstants.ARTICLE_STATUS_NORMAL);
+        List<Article> articleList = articleService.list(queryWrapper);
+        //获取文章的分类id，并且去重
+        Set<Long> categoryIds = articleList.stream()
+                .map(article -> article.getCategoryId())
+                .collect(Collectors.toSet());
 
-        //可以采用stream表示更方便
-        List<Category> categories=new ArrayList<>();
-        for (Article article:articles) {
-            if (article.getStatus().equals("0")){
-                Category category = categoryService.getById(article.getCategoryId());
-                if (category.getStatus().equals("0")){
-                    categories.add(category);
-                }
+        //查询分类表
+        List<Category> categories = listByIds(categoryIds);
+        categories = categories.stream().
+                filter(category -> SystemConstants.STATUS_NORMAL.equals(category.getStatus()))
+                .collect(Collectors.toList());
 
-            }
-        }
         List<CategoryVo> categoryVos = BeanCopyUtils.copyBeanList(categories, CategoryVo.class);
         return ResponseResult.okResult(categoryVos);
     }

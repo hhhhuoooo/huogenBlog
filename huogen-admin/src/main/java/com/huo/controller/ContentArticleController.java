@@ -1,6 +1,7 @@
 package com.huo.controller;
 
 import com.huo.domain.ResponseResult;
+import com.huo.domain.dto.AddArticleDto;
 import com.huo.domain.dto.ArticleListDto;
 import com.huo.domain.dto.ContentArticleListDto;
 import com.huo.domain.dto.TagListDto;
@@ -25,6 +26,12 @@ public class ContentArticleController {
 
     @Autowired
     private ArticleService articleService;
+
+    //新增博文
+    @PostMapping
+    public ResponseResult add(@RequestBody AddArticleDto article){
+        return articleService.add(article);
+    }
 
     @GetMapping("/list")
     public ResponseResult<PageVo> List(Integer pageNum, Integer pageSize, ArticleListDto articleListDto){

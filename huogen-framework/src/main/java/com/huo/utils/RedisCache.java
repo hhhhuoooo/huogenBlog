@@ -202,9 +202,7 @@ public class RedisCache
     }
 
     public void incrementCacheMapValue(String key,String hKey,long v){
-
-        redisTemplate.opsForHash().increment(key,hKey, v);
-//        redisTemplate.boundHashOps(key).increment(hKey, v);
+        redisTemplate.boundHashOps(key).increment(hKey, v);
     }
 
     /**

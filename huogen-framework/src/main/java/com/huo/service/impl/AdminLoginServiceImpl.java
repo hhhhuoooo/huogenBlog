@@ -26,7 +26,7 @@ import java.util.Objects;
  * @Date 2023/4/30 17:32
  */
 @Service
-public class AdminLoginServiceimpl implements AdminLoginService {
+public class AdminLoginServiceImpl implements AdminLoginService {
     @Autowired
     private AuthenticationManager authenticationManager;
 
