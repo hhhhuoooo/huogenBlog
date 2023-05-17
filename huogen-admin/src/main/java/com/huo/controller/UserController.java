@@ -47,7 +47,7 @@ public class UserController {
         return userService.deleteUser(id);
     }
 
-    //  获取用户信息
+    //  获取用户信息1
     @GetMapping("/{id}")
     public ResponseResult get(@PathVariable Long id){
         return userService.get(id);

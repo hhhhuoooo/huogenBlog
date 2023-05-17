@@ -4,32 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a120fe5-59b1-45e4-9d51-810febfba910" name="Changes" comment="second">
-      <change afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/domain/dto/UserDto.java" afterDir="false" />
+    <list default="true" id="4a120fe5-59b1-45e4-9d51-810febfba910" name="Changes" comment="third">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huogen-admin/src/main/java/com/huo/controller/AdminLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-admin/src/main/java/com/huo/controller/AdminLoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huogen-admin/src/main/java/com/huo/controller/BlogContentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-admin/src/main/java/com/huo/controller/BlogContentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huogen-admin/src/main/java/com/huo/controller/ContentArticleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-admin/src/main/java/com/huo/controller/ContentArticleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huogen-admin/src/main/java/com/huo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-admin/src/main/java/com/huo/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huogen-blog/src/main/java/com/huo/controller/ArticleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-blog/src/main/java/com/huo/controller/ArticleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huogen-blog/src/main/java/com/huo/controller/CommentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-blog/src/main/java/com/huo/controller/CommentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huogen-blog/src/main/java/com/huo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-blog/src/main/java/com/huo/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huogen-blog/src/main/java/com/huo/job/updateViewCount.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-blog/src/main/java/com/huo/job/updateViewCount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/config/MbatisPlusConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/config/MybatisPlusConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/constants/SystemConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/constants/SystemConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/domain/ResponseResult.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/domain/ResponseResult.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/domain/entity/Article.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/domain/entity/Article.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/domain/entity/LoginUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/domain/entity/LoginUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/enums/AppHttpCodeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/enums/AppHttpCodeEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/impl/AdminLoginServiceimpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/impl/AdminLoginServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/impl/ArticleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/impl/ArticleServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/impl/BlogLoginServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/impl/BlogLoginServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/impl/CategoryServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/impl/CategoryServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/impl/CommentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/impl/CommentServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/impl/MenuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/impl/MenuServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/utils/RedisCache.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/utils/RedisCache.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,6 +214,7 @@
       <workItem from="1684125577317" duration="1186000" />
       <workItem from="1684199927234" duration="5495000" />
       <workItem from="1684224429522" duration="4132000" />
+      <workItem from="1684290007726" duration="582000" />
     </task>
     <task id="LOCAL-00001" summary="second">
       <created>1683432489926</created>
@@ -246,15 +223,34 @@
       <option name="project" value="LOCAL" />
       <updated>1683432489926</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="third">
+      <created>1684290090696</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1684290090696</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.History.Properties">
+    <option name="COLUMN_ID_ORDER">
+      <list>
+        <option value="Default.Root" />
+        <option value="Default.Author" />
+        <option value="Default.Date" />
+        <option value="Default.Subject" />
+        <option value="Space.CommitStatus" />
+      </list>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="second" />
-    <option name="LAST_COMMIT_MESSAGE" value="second" />
+    <MESSAGE value="third" />
+    <option name="LAST_COMMIT_MESSAGE" value="third" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
