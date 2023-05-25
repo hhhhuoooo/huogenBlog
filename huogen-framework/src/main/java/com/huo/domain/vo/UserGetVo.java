@@ -18,9 +18,9 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserGetVo {
-    private List<String> roleIds;
+    private User user;
 
     private List<Role> roles;
 
-    private UserAddDto user;
+    private List<Long> roleIds;
 }

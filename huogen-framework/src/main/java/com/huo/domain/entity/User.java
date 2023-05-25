@@ -1,8 +1,6 @@
 package com.huo.domain.entity;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,6 +21,7 @@ import java.util.List;
 @TableName("sys_user")
 public class User {
     //主键
+    @TableId(value = "id",type = IdType.AUTO)
     private Long id;
     //用户名
     private String userName;
@@ -58,8 +57,9 @@ public class User {
     //删除标志（0代表未删除，1代表已删除）
     private Integer delFlag;
 
+    //关联角色id数组，非user表字段
     @TableField(exist = false)
-    private List<String> roleIds;
+    private Long[] roleIds;
 
 
 }

@@ -23,6 +23,12 @@ public interface MenuService extends IService<Menu> {
 
     ResponseResult menuList(MenuListDto menuListDto);
 
+    List<Menu> selectMenuList(Menu menu);
+
+    boolean hasChild(Long menuId);
+
+    List<Long> selectMenuListByRoleId(Long roleId);
+
     ResponseResult<MenuVo> add(Menu menu);
 
     ResponseResult getMenu(Long id);
@@ -31,6 +37,5 @@ public interface MenuService extends IService<Menu> {
 
     ResponseResult deleteMenu(Long id);
 
-    ResponseResult treeSelect();
 }
 

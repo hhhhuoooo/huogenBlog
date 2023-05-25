@@ -1,5 +1,6 @@
 package com.huo.config;
 
+
 import com.huo.filter.JwtAuthenticationTokenFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

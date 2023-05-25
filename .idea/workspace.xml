@@ -5,7 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a120fe5-59b1-45e4-9d51-810febfba910" name="Changes" comment="third">
+      <change afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/domain/entity/RoleMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/domain/entity/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/domain/vo/RoleMenuTreeSelectVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/mapper/RoleMenuMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/mapper/UserRoleMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/RoleMenuService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/UserRoleService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/impl/RoleMenuServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/impl/UserRoleServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/utils/SystemConverter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/965db1a7-19da-4975-94d5-35dd98b77b9c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/965db1a7-19da-4975-94d5-35dd98b77b9c.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/easyCodeTableSetting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/easyCodeTableSetting.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huogen-admin/src/main/java/com/huo/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-admin/src/main/java/com/huo/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huogen-admin/src/main/java/com/huo/controller/AdminLoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-admin/src/main/java/com/huo/controller/AdminLoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huogen-admin/src/main/java/com/huo/controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-admin/src/main/java/com/huo/controller/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huogen-admin/src/main/java/com/huo/controller/RoleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-admin/src/main/java/com/huo/controller/RoleController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huogen-admin/src/main/java/com/huo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-admin/src/main/java/com/huo/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huogen-blog/src/main/java/com/huo/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-blog/src/main/java/com/huo/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/domain/entity/Category.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/domain/entity/Category.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/domain/entity/Link.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/domain/entity/Link.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/domain/entity/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/domain/entity/Role.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/domain/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/domain/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/domain/vo/MenuTreeSelectVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/domain/vo/MenuTreeVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/domain/vo/UserGetVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/domain/vo/UserGetVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/mapper/MenuMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/mapper/MenuMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/mapper/RoleMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/mapper/RoleMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/MenuService.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/MenuService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/RoleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/RoleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/impl/MenuServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/impl/MenuServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/impl/RoleServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/impl/RoleServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/java/com/huo/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/resources/mapper/MenuMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/resources/mapper/MenuMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huogen-framework/src/main/resources/mapper/RoleMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/huogen-framework/src/main/resources/mapper/RoleMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +92,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/IntelliJ IDEA Ultimate/project/SGBlog&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/IntelliJ IDEA Ultimate/project/huogenBlog/huogen-framework/src/main/java/com/huo/domain/vo&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -67,7 +101,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
     &quot;spring.configuration.checksum&quot;: &quot;6e6feaecc59ddf04d365514759dda835&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
@@ -88,16 +122,17 @@
       <recent name="com.huo.domain.entity" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\IntelliJ IDEA Ultimate\project\huogenBlog\huogen-admin\src\main\resources" />
+      <recent name="D:\IntelliJ IDEA Ultimate\project\huogenBlog\huogen-framework\src\main\java\com\huo\domain\vo" />
       <recent name="D:\IntelliJ IDEA Ultimate\project\huogenBlog\huogen-framework\src\main\java\com\huo\utils" />
+      <recent name="D:\IntelliJ IDEA Ultimate\project\huogenBlog\huogen-admin\src\main\resources" />
       <recent name="D:\IntelliJ IDEA Ultimate\project\huogenBlog\huogen-framework\src\main\java\com\huo\config" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.huo.domain.vo" />
-      <recent name="com.huo.controller" />
       <recent name="com.huo.service.impl" />
       <recent name="com.huo.service" />
       <recent name="com.huo.mapper" />
+      <recent name="com.huo.domain.entity" />
+      <recent name="com.huo.domain.vo" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.HuoGenAdminApplication">
@@ -215,6 +250,13 @@
       <workItem from="1684199927234" duration="5495000" />
       <workItem from="1684224429522" duration="4132000" />
       <workItem from="1684290007726" duration="582000" />
+      <workItem from="1684305614914" duration="1062000" />
+      <workItem from="1684462136216" duration="789000" />
+      <workItem from="1684632687418" duration="4295000" />
+      <workItem from="1684754310954" duration="5306000" />
+      <workItem from="1684759838070" duration="882000" />
+      <workItem from="1684799968195" duration="21265000" />
+      <workItem from="1684926885734" duration="2671000" />
     </task>
     <task id="LOCAL-00001" summary="second">
       <created>1683432489926</created>
@@ -230,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684290090696</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="third">
+      <created>1684305661409</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1684305661409</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

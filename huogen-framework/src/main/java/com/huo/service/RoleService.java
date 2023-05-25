@@ -7,6 +7,7 @@ import com.huo.domain.dto.RoleListDto;
 import com.huo.domain.dto.RoleStatusDto;
 import com.huo.domain.entity.Role;
 import com.huo.domain.vo.PageVo;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -23,13 +24,21 @@ public interface RoleService extends IService<Role> {
 
     ResponseResult<PageVo> roleList(Integer pageNum, Integer pageSize, RoleListDto roleListDto);
 
+    @Transactional
+    void insertRole(Role role);
+
     ResponseResult changeStatus(RoleStatusDto roleStatusDto);
 
     ResponseResult get(Long id);
 
+    void updateRole(Role role);
 
-    ResponseResult add(RoleAddDto roleAddDto);
+//    ResponseResult add(RoleAddDto roleAddDto);
 
     ResponseResult listAllRole();
+
+    List<Role> selectRoleAll();
+
+    List<Long> selectRoleIdByUserId(Long userId);
 }
 

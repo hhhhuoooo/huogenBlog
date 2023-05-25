@@ -1,29 +1,30 @@
 package com.huo.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.huo.constants.SystemConstants;
 import com.huo.domain.ResponseResult;
-import com.huo.domain.dto.RoleAddDto;
 import com.huo.domain.dto.RoleListDto;
 import com.huo.domain.dto.RoleStatusDto;
 import com.huo.domain.entity.Role;
-import com.huo.domain.entity.Tag;
-import com.huo.domain.entity.User;
+import com.huo.domain.entity.RoleMenu;
 import com.huo.domain.vo.PageVo;
 import com.huo.domain.vo.RoleVo;
-import com.huo.domain.vo.TagVo;
 import com.huo.mapper.RoleMapper;
+import com.huo.service.RoleMenuService;
 import com.huo.service.RoleService;
 import com.huo.utils.BeanCopyUtils;
-import com.huo.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * 角色信息表(Role)表服务实现类
@@ -36,6 +37,9 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
 
     @Autowired
     private RoleMapper roleMapper;
+
+    @Autowired
+    private RoleMenuService roleMenuService;
 
     @Override
     public List<String> selectRoleKeyByUserId(Long id) {
@@ -79,17 +83,33 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
     }
 
     @Override
-    public ResponseResult add(RoleAddDto roleAddDto) {
-        //        3、将所得值传入数据库
-        Role role=new Role();
-        role.setRoleName(roleAddDto.getRoleName());
-        role.setRoleKey(roleAddDto.getRoleKey());
-        role.setRoleSort(roleAddDto.getRoleSort());
-        role.setStatus(roleAddDto.getStatus());
-        role.setRemark(roleAddDto.getRemark());
-//      menusId
-        roleMapper.insert(role);
-        return  ResponseResult.okResult();
+    public void updateRole(Role role) {
+        updateById(role);
+        roleMenuService.deleteRoleMenuByRoleId(role.getId());
+        insertRoleMenu(role);
+    }
+
+//    @Override
+//    public ResponseResult add(RoleAddDto roleAddDto) {
+//        //        3、将所得值传入数据库
+//        Role role=new Role();
+//        role.setRoleName(roleAddDto.getRoleName());
+//        role.setRoleKey(roleAddDto.getRoleKey());
+//        role.setRoleSort(roleAddDto.getRoleSort());
+//        role.setStatus(roleAddDto.getStatus());
+//        role.setRemark(roleAddDto.getRemark());
+////      menusId
+//        roleMapper.insert(role);
+//        return  ResponseResult.okResult();
+//    }
+
+    @Override
+    @Transactional
+    public void insertRole(Role role) {
+        save(role);
+        if (role.getMenuIds()!=null&&role.getMenuIds().length>0){
+            insertRoleMenu(role);
+        }
     }
 
 
@@ -115,6 +135,25 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
         queryWrapper.eq(Role::getStatus, SystemConstants.NORMAL);
         return ResponseResult.okResult(list(queryWrapper));
     }
+
+
+    @Override
+    public List<Role> selectRoleAll() {
+        return list(Wrappers.<Role>lambdaQuery().eq(Role::getStatus, SystemConstants.NORMAL));
+    }
+
+    @Override
+    public List<Long> selectRoleIdByUserId(Long userId) {
+        return getBaseMapper().selectRoleIdByUserId(userId);
+    }
+
+    private void insertRoleMenu(Role role) {
+        List<RoleMenu> roleMenuList = Arrays.stream(role.getMenuIds())
+                .map(memuId -> new RoleMenu(role.getId(), memuId))
+                .collect(Collectors.toList());
+        roleMenuService.saveBatch(roleMenuList);
+    }
+
 
 
 

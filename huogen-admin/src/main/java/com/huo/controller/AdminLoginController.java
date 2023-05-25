@@ -7,6 +7,8 @@ import com.huo.domain.entity.User;
 import com.huo.domain.vo.AdminUserInfoVo;
 import com.huo.domain.vo.RoutersVo;
 import com.huo.domain.vo.UserInfoVo;
+import com.huo.enums.AppHttpCodeEnum;
+import com.huo.handler.exception.SystemException;
 import com.huo.service.AdminLoginService;
 import com.huo.service.BlogLoginService;
 import com.huo.service.MenuService;
@@ -15,6 +17,7 @@ import com.huo.utils.BeanCopyUtils;
 import com.huo.utils.RedisCache;
 import com.huo.utils.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -44,6 +47,10 @@ public class AdminLoginController {
 
     @PostMapping("/user/login")
     public ResponseResult login(@RequestBody User user){
+        if(!StringUtils.hasText(user.getUserName())){
+            //提示 必须要传用户名
+            throw new SystemException(AppHttpCodeEnum.REQUIRE_USERNAME);
+        }
         return adminLoginService.login(user);
     }
 

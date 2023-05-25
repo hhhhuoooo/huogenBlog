@@ -7,7 +7,6 @@ import com.huo.domain.ResponseResult;
 import com.huo.domain.dto.MenuListDto;
 import com.huo.domain.entity.Menu;
 import com.huo.domain.entity.Tag;
-import com.huo.domain.vo.MenuTreeSelectVo;
 import com.huo.domain.vo.MenuVo;
 import com.huo.domain.vo.TagVo;
 import com.huo.enums.AppHttpCodeEnum;
@@ -106,12 +105,39 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
         LambdaQueryWrapper<Menu> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.like(StringUtils.hasText(menuListDto.getStatus()), Menu::getStatus,menuListDto.getStatus());
         queryWrapper.like(StringUtils.hasText(menuListDto.getMenuName()),Menu::getMenuName,menuListDto.getMenuName());
-
+        queryWrapper.orderByAsc(Menu::getParentId,Menu::getOrderNum);
         List<Menu> menus = list(queryWrapper);
         List<MenuVo> menuVos = BeanCopyUtils.copyBeanList(menus, MenuVo.class);
 
         return ResponseResult.okResult(menuVos);
     }
+
+    @Override
+    public List<Menu> selectMenuList(Menu menu) {
+
+        LambdaQueryWrapper<Menu> queryWrapper = new LambdaQueryWrapper<>();
+        //menuName模糊查询
+        queryWrapper.like(StringUtils.hasText(menu.getMenuName()),Menu::getMenuName,menu.getMenuName());
+        queryWrapper.eq(StringUtils.hasText(menu.getStatus()),Menu::getStatus,menu.getStatus());
+        //排序 parent_id和order_num
+        queryWrapper.orderByAsc(Menu::getParentId,Menu::getOrderNum);
+        List<Menu> menus = list(queryWrapper);;
+        return menus;
+    }
+
+    @Override
+    public boolean hasChild(Long menuId) {
+        LambdaQueryWrapper<Menu> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(Menu::getParentId,menuId);
+        return count(queryWrapper) != 0;
+    }
+
+    @Override
+    public List<Long> selectMenuListByRoleId(Long roleId) {
+        return getBaseMapper().selectMenuListByRoleId(roleId);
+    }
+
+
 
     @Override
     public ResponseResult<MenuVo> add(Menu menu) {
@@ -146,21 +172,27 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
         }
     }
 
-    @Override
-    public ResponseResult treeSelect() {
-        List<Menu> menus = list();
-        List<Menu> menuTree = builderMenuTree(menus,0L);
-        List<MenuTreeSelectVo> menuTreeSelectVos = BeanCopyUtils.copyBeanList(menuTree, MenuTreeSelectVo.class);
-
-//        for (Menu menu:menus) {
+//    @Override
+//    public ResponseResult treeSelect() {
+//        List<Menu> menus = list();
+//        List<Menu> menuTree = builderMenuTree(menus,0L);
+//        List<MenuTreeSelectVo> menuTreeSelectVos = BeanCopyUtils.copyBeanList(menuTree, MenuTreeSelectVo.class);
+//
+//        for (Menu menu:menuTree) {
 //            for (MenuTreeSelectVo menuTreeSelectVo:menuTreeSelectVos) {
-//                menuTreeSelectVo.setLabel(menu.getMenuName());
+//                if (menu.getChildren().isEmpty()){
+//                    menuTreeSelectVo.setLabel(menu.getMenuName());
+//                    break;
+//                }else {
+//                    List<Menu> children = menu.getChildren();
+//
+//
+//                }
+//
 //            }
+//
 //        }
-
-        
-
-        return ResponseResult.okResult(menuTreeSelectVos);
-    }
+//        return ResponseResult.okResult(menuTreeSelectVos);
+//    }
 }
 

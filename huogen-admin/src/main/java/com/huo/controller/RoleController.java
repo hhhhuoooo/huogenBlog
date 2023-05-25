@@ -45,10 +45,28 @@ public class RoleController {
         return roleService.get(id);
     }
 
+    //修改角色信息
+    @PutMapping
+    public ResponseResult update(@RequestBody Role role)
+    {
+        roleService.updateRole(role);
+        return ResponseResult.okResult();
+    }
 
+
+    //新增角色
     @PostMapping
-    public ResponseResult add(@RequestBody RoleAddDto roleAddDto){
-        return roleService.add(roleAddDto);
+    public ResponseResult add(@RequestBody Role role)
+    {
+        roleService.insertRole(role);
+        return ResponseResult.okResult();
+    }
+
+    //删除角色
+    @DeleteMapping("/{id}")
+    public ResponseResult delete(@PathVariable Long id) {
+        roleService.removeById(id);
+        return ResponseResult.okResult();
     }
 
 
